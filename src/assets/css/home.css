@@ -1,0 +1,38 @@
+.speaker-application {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.speaker-application .title {
+    font-size: 2rem;
+}
+
+.speaker-application .link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff2b1d;
+  /* font-weight: bold; */
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  transition: background-color 0.3s ease;
+}
+
+.photo {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.speaker-application .link:hover {
+  background-color: white;
+}
