@@ -132,6 +132,14 @@ const routes = [
       title: "Merchandise"
     },
   },
+  {
+    path:'/our-journey',
+    name:'our-journey',
+    component: ()=>import('../views/Journey.vue'),
+    meta:{
+      title: 'Our-Journey'
+    }
+  }
   // *** Error404 path. This needs to be created.
   // {
   //   path: '*',
