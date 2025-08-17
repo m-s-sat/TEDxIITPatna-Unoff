@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 // only the home view is loaded at first. all other routes are lazy-loaded when called.
 // this is done simply to cut down on network usage and speed up loading a bit on initial landing.
@@ -8,142 +8,188 @@ import HomeView from '../views/HomeView.vue'
 // NOTE: when using lazy loading feature, be sure to add the webpackChunkName directives (yes, it's not random comments)
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "home",
     component: HomeView,
     meta: {
-      title: "Home"
+      title: "Home",
     },
   },
   {
-    path: '/speakers',
-    name: 'speakers',
+    path: "/speakers",
+    name: "speakers",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "pastevents" */ '../views/Speakers.vue'),
+    component: () =>
+      import(/* webpackChunkName: "pastevents" */ "../views/Speakers.vue"),
     meta: {
-      title: "Speakers"
+      title: "Speakers",
     },
   },
 
   {
-    path: '/pastevents',
-    name: 'pastevents',
-    component: () => import(/* webpackChunkName: "pastevents" */ '../views/PastEventsView.vue'),
+    path: "/pastevents",
+    name: "pastevents",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevents" */ "../views/PastEventsView.vue"
+      ),
     meta: {
-      title: "Past Events"
+      title: "Past Events",
     },
   },
 
   {
-    path: '/partners',
-    name: 'partners',
-    component: () => import(/* webpackChunkName: "partners" */ '../views/Partners.vue'),
+    path: "/partners",
+    name: "partners",
+    component: () =>
+      import(/* webpackChunkName: "partners" */ "../views/Partners.vue"),
     meta: {
-      title: "Partners"
+      title: "Partners",
     },
   },
 
-  
   {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    path: "/about",
+    name: "about",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
     meta: {
-      title: "About"
+      title: "About",
     },
   },
 
   // past events
   {
-    path: '/pastevents/2021',
-    name: 'pastevent_2021',
-    component: () => import(/* webpackChunkName: "pastevent_2021" */ '../views/PastEvents/PastEvent.2021.vue'),
+    path: "/pastevents/2021",
+    name: "pastevent_2021",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevent_2021" */ "../views/PastEvents/PastEvent.2021.vue"
+      ),
     meta: {
-      title: "Roar, 2021"
+      title: "Roar, 2021",
     },
   },
   {
-    path: '/pastevents/2022',
-    name: 'pastevent_2022',
-    component: () => import(/* webpackChunkName: "pastevent_2021" */ '../views/PastEvents/PastEvent.2022.vue'),
+    path: "/pastevents/2022",
+    name: "pastevent_2022",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevent_2021" */ "../views/PastEvents/PastEvent.2022.vue"
+      ),
     meta: {
-      title: "Infinite_affinities, 2022"
+      title: "Infinite_affinities, 2022",
     },
   },
   {
-    path: '/pastevents/2023',
-    name: 'pastevent_2023',
-    component: () => import(/* webpackChunkName: "pastevent_2021" */ '../views/PastEvents/PastEvent.2023.vue'),
+    path: "/pastevents/2023",
+    name: "pastevent_2023",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevent_2021" */ "../views/PastEvents/PastEvent.2023.vue"
+      ),
     meta: {
-      title: "Prism_of_perception, 2023"
+      title: "Prism_of_perception, 2023",
     },
   },
   {
-    path: '/pastevents/2019',
-    name: 'pastevent_2019',
-    component: () => import(/* webpackChunkName: "pastevent_2019" */ '../views/PastEvents/PastEvent.2019.vue'),
+    path: "/pastevents/2019",
+    name: "pastevent_2019",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevent_2019" */ "../views/PastEvents/PastEvent.2019.vue"
+      ),
     meta: {
-      title: "Metamorphosis, 2019"
+      title: "Metamorphosis, 2019",
     },
   },
 
   {
-    path: '/pastevents/2016',
-    name: 'pastevent_2016',
-    component: () => import(/* webpackChunkName: "pastevent_2016" */ '../views/PastEvents/PastEvent.2016.vue'),
+    path: "/pastevents/2016",
+    name: "pastevent_2016",
+    component: () =>
+      import(
+        /* webpackChunkName: "pastevent_2016" */ "../views/PastEvents/PastEvent.2016.vue"
+      ),
     meta: {
-      title: "Shedding Off Feathers, 2016"
+      title: "Shedding Off Feathers, 2016",
     },
   },
   {
-    path: '/qrcode',
-    name: 'qrcode',
-    component: () => import(/* webpackChunkName: "qrcode" */ '../views/Qrcode.vue'),
+    path: "/qrcode",
+    name: "qrcode",
+    component: () =>
+      import(/* webpackChunkName: "qrcode" */ "../views/Qrcode.vue"),
     meta: {
-      title: "Redirect"
+      title: "Redirect",
     },
   },
   {
-    path: '/iitp-55a095e504b85523a2fd54a5e75d3bca/ticketbooking',
-    name: 'ticketbooking',
-    component: () => import(/* webpackChunkName: "ticketbooking" */ '../views/TicketBooking.vue'),
+    path: "/iitp-55a095e504b85523a2fd54a5e75d3bca/ticketbooking",
+    name: "ticketbooking",
+    component: () =>
+      import(
+        /* webpackChunkName: "ticketbooking" */ "../views/TicketBooking.vue"
+      ),
     meta: {
-      title: "Ticket Booking"
+      title: "Ticket Booking",
     },
   },
   {
-    path: '/comingsoon',
-    name: 'comingsoon',
-    component: () => import(/* webpackChunkName: "commingsoon" */ '../views/ComingSoonView.vue'),
+    path: "/comingsoon",
+    name: "comingsoon",
+    component: () =>
+      import(
+        /* webpackChunkName: "commingsoon" */ "../views/ComingSoonView.vue"
+      ),
     meta: {
-      title: "Coming Soon"
+      title: "Coming Soon",
+    },
+  },
+  // {  // UPDATED WITH   /buyMerchTickets  ROUTE
+  //   path: "/merch",
+  //   name: "merch",
+  //   component: () =>
+  //     import(
+  //       /* webpackChunkName: "tshirtbanner" */ "../views/TshirtBanner.vue"
+  //     ),
+  //   meta: {
+  //     title: "Merchandise",
+  //   },
+  // },
+  {
+    path: "/our-journey",
+    name: "our-journey",
+    component: () => import("../views/Journey.vue"),
+    meta: {
+      title: "Our-Journey",
     },
   },
   {
-    path: '/merch',
-    name: 'merch',
-    component: () => import(/* webpackChunkName: "tshirtbanner" */ '../views/TshirtBanner.vue'),
+    path: "/funfair",
+    name: "funfair",
+    component: () => import("../views/Funfairpage.vue"),
     meta: {
-      title: "Merchandise"
+      title: "Fun Fair",
     },
   },
   {
-    path:'/our-journey',
-    name:'our-journey',
-    component: ()=>import('../views/Journey.vue'),
-    meta:{
-      title: 'Our-Journey'
-    }
+    path: "/contact-us",
+    name: "contact us",
+    component: () => import("../views/ContactUsPage.vue"),
+    meta: {
+      title: "Contact Us",
+    },
   },
   {
-    path:'/funfair',
-    name:'funfair',
-    component: ()=>import('../views/Funfairpage.vue'),
-    meta:{
-      title:'Fun Fair'
-    }
+    path: "/buyMerchTickets",
+    name: "BuyNow",
+    component: () => import("../views/BuyNow.vue"),
+    meta: {
+      title: "Buy Now",
+    },
   },
   {
     path:'/contact-us',
@@ -220,14 +266,14 @@ const routes = [
   // {
   //   path: '*',
   //   name: 'error404',
-  //   component: 
+  //   component:
   // }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
 // Add navigation guard to handle page reload for specific routes
 router.beforeEach((to, from, next) => {

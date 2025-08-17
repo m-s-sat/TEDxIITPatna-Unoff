@@ -14,17 +14,33 @@
     </div>
 
     <!-- Desktop only year bar -->
-    <div class="year-bar" ref="yearBar" :class="{ 'sticky': isSticky }">
-      <div class="year" v-for="year in [2024, 2023, 2022, 2021, 2019]" :key="year" @click="scrollToYear(year)">{{ year }}</div>
+    <div class="year-bar" ref="yearBar" :class="{ sticky: isSticky }">
+      <div
+        class="year"
+        v-for="year in [2024, 2023, 2022, 2021, 2019]"
+        :key="year"
+        @click="scrollToYear(year)"
+      >
+        {{ year }}
+      </div>
     </div>
 
     <!-- Speaker sections -->
     <div class="speakers-container">
-      <div class="speakers-section" v-for="(yearGroup, i) in allYears" :key="i" :ref="`year-${yearGroup.year}`">
+      <div
+        class="speakers-section"
+        v-for="(yearGroup, i) in allYears"
+        :key="i"
+        :ref="`year-${yearGroup.year}`"
+      >
         <!-- Desktop: non-clickable year label, Mobile: clickable with dropdown -->
-        <div class="year-label" :class="{ 'clickable': isMobile }" @click="isMobile ? toggleYear(yearGroup.year) : null">
+        <div
+          class="year-label"
+          :class="{ clickable: isMobile }"
+          @click="isMobile ? toggleYear(yearGroup.year) : null"
+        >
           <span v-if="isMobile">
-            {{ expandedYears.includes(yearGroup.year) ? '▴' : '▾' }}
+            {{ expandedYears.includes(yearGroup.year) ? "▴" : "▾" }}
             {{ yearGroup.year }}
           </span>
           <span v-else>
@@ -149,20 +165,20 @@ export default {
     }
   },
   mounted() {
-    this.checkMobile()
-    window.addEventListener('resize', this.checkMobile)
-    window.addEventListener('scroll', this.handleScroll)
-    
+    this.checkMobile();
+    window.addEventListener("resize", this.checkMobile);
+    window.addEventListener("scroll", this.handleScroll);
+
     // Set the original top position of year-bar
     this.$nextTick(() => {
       if (this.$refs.yearBar) {
         this.yearBarOriginalTop = this.$refs.yearBar.offsetTop - 73;
       }
-    })
+    });
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.checkMobile)
-    window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener("resize", this.checkMobile);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     checkMobile() {
@@ -171,20 +187,22 @@ export default {
     toggleYear(year) {
       // If the clicked year is already expanded, collapse it
       if (this.expandedYears.includes(year)) {
-        this.expandedYears = []
+        this.expandedYears = [];
       } else {
         // Otherwise, set only this year as expanded
-        this.expandedYears = [year]
+        this.expandedYears = [year];
       }
     },
     scrollToYear(year) {
       if (!this.isMobile) {
-        const yearElement = this.$refs[`year-${year}`]
+        const yearElement = this.$refs[`year-${year}`];
         if (yearElement && yearElement[0]) {
-          const yearBarHeight = this.$refs.yearBar ? this.$refs.yearBar.offsetHeight : 0
-          
+          const yearBarHeight = this.$refs.yearBar
+            ? this.$refs.yearBar.offsetHeight
+            : 0;
+
           // Use different scroll values based on whether year-bar is currently sticky
-          let offsetTop
+          let offsetTop;
           if (this.isSticky) {
             // Year-bar is already sticky - use normal padding
             offsetTop = yearElement[0].offsetTop - yearBarHeight - 20 - 73
@@ -192,31 +210,32 @@ export default {
             // Clicking from top when year-bar is not sticky - use more padding
             offsetTop = yearElement[0].offsetTop - yearBarHeight - 60 - 73
           }
-          
+
           window.scrollTo({
             top: offsetTop,
-            behavior: 'smooth'
-          })
+            behavior: "smooth",
+          });
         }
       }
     },
     handleScroll() {
       if (!this.isMobile && this.$refs.yearBar) {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
         // Check if we should stick the year-bar
         if (scrollTop >= this.yearBarOriginalTop + 305) {
-          this.isSticky = true
+          this.isSticky = true;
         } else {
-          this.isSticky = false
+          this.isSticky = false;
         }
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-@import '@/assets/css/speaker.css';
-@import '@/assets/css/speaker.mobile.css';
+@import "@/assets/css/speaker.css";
+@import "@/assets/css/speaker.mobile.css";
 </style>

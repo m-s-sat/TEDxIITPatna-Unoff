@@ -6,7 +6,10 @@
     <div class="image-container">
       <img :src="image" alt="Event Image" />
     </div>
-    <a class="explore-container" :href="`http://localhost:8080/pastevents/${year}`">
+    <a
+      class="explore-container"
+      :href="`http://localhost:8080/pastevents/${year}`"
+    >
       Explore &gt;&gt;
     </a>
   </div>
@@ -20,7 +23,7 @@ defineProps({
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .event-container-individual {
   position: relative;
@@ -29,7 +32,7 @@ defineProps({
   border: 2.5px solid white;
   margin: 0;
   background-color: #000;
-  font-family: 'Righteous', sans-serif;
+  font-family: "Righteous", sans-serif;
   overflow: visible;
 }
 
@@ -59,7 +62,7 @@ defineProps({
   padding: 2px 12px;
   color: white;
   font-size: 18px;
-  background-color: #C62828;
+  background-color: #c62828;
   border-radius: 5px;
   transform: rotate(-8deg);
 }
@@ -92,18 +95,18 @@ defineProps({
     height: 180px;
     margin: 0;
   }
-  
+
   .year-container {
     font-size: 16px;
     padding: 2px 10px;
   }
-  
+
   .explore-container {
     font-size: 11px;
     bottom: 12px;
     right: 12px;
   }
-  
+
   .image-container img {
     object-fit: cover;
     object-position: center;
@@ -116,18 +119,18 @@ defineProps({
     height: 170px;
     margin: 0;
   }
-  
+
   .year-container {
     font-size: 15px;
     padding: 2px 8px;
   }
-  
+
   .explore-container {
     font-size: 10px;
     bottom: 10px;
     right: 10px;
   }
-  
+
   .image-container img {
     object-fit: cover;
     object-position: center;
@@ -140,18 +143,18 @@ defineProps({
     height: 160px;
     margin: 0;
   }
-  
+
   .year-container {
     font-size: 14px;
     padding: 1px 6px;
   }
-  
+
   .explore-container {
     font-size: 9px;
     bottom: 8px;
     right: 8px;
   }
-  
+
   .image-container img {
     object-fit: cover;
     object-position: center;
